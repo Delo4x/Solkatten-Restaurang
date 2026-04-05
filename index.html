@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solkatten – Restaurang & Bar</title>
+    <meta name="description" content="Solkatten Restaurang & Bar i Borgholm, Öland. Öppen måndag till söndag.">
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#hem" class="nav-logo">SOLKATTEN</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Öppna meny">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hem" class="nav-link">HEM</a></li>
+            <li><a href="#meny" class="nav-link">MENY</a></li>
+            <li><a href="#happy-hour" class="nav-link">HAPPY HOUR</a></li>
+            <li><a href="#drycker" class="nav-link">DRYCKER</a></li>
+            <li><a href="#kontakt" class="nav-link">KONTAKT</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== HEM ==================== -->
+    <section id="hem" class="section hero-section">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <img src="images/logo.png" alt="Solkatten Logo" class="hero-logo">
+            <p class="hero-subtitle">RESTAURANG &amp; BAR</p>
+            <div class="gold-divider centered"></div>
+            <a href="#meny" class="hero-btn">SE MENYN</a>
+
+            <!-- ── BILDKARUSELL ── -->
+            <div class="hero-carousel" id="heroCarousel">
+                <div class="hc-inner">
+                    <img src="images/img1.jpeg" class="hc-slide active" alt="Solkatten bild 1">
+                    <img src="images/img2.jpeg" class="hc-slide" alt="Solkatten bild 2">
+                    <img src="images/img3.jpeg" class="hc-slide" alt="Solkatten bild 3">
+                    <img src="images/img4.jpeg" class="hc-slide" alt="Solkatten bild 4">
+                    <img src="images/img5.jpeg" class="hc-slide" alt="Solkatten bild 5">
+                    <img src="images/img6.jpeg" class="hc-slide" alt="Solkatten bild 6">
+                    <img src="images/img7.jpeg" class="hc-slide" alt="Solkatten bild 7">
+                </div>
+                <div class="hc-dots" id="hcDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MENY ==================== -->
+    <section id="meny" class="section meny-section">
+        <div class="meny-bg-pattern"></div>
+        <div class="container">
+            <h1 class="page-title reveal">Solkattens Meny</h1>
+            <div class="gold-divider centered reveal"></div>
+
+            <!-- Dagens Rätter -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Dagens Rätter</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Räkmacka</span>
+                            <span class="item-desc">Handskalade räkor, bröd, grönsaker, ägg, aioli, picklad rödlök &amp; citron</span>
+                        </div>
+                        <span class="item-price">169 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Kroppkakor</span>
+                            <span class="item-desc">Arontorps kroppkakor, stekt fläsk, lingonsylt, grädde &amp; skirat smör (2 st)</span>
+                        </div>
+                        <span class="item-price">139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Solkattens Smashburger</span>
+                            <span class="item-desc">Pommes, brioche bröd, sallad, tomat, bacon, picklad lök, cheddarost &amp; aioli</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Crispy Chicken</span>
+                            <span class="item-desc">Panerad kyckling, grönsaker, pommes, picklad lök, aioli och citron</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Tagliatelle al Oxfilé</span>
+                            <span class="item-desc">Pasta Tagliatelle, oxfilé, grönt, champinjoner sås, parmesanost</span>
+                        </div>
+                        <span class="item-price">209 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Tagliatelle al Fläskfilé</span>
+                            <span class="item-desc">Pasta Tagliatelle, fläskfilé, grönt, champinjoner sås, parmesanost</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Halloumi Burgare</span>
+                            <span class="item-desc">Grillad halloumi, briochebröd, sallad, tomat, gurka, pommes, picklad lök &amp; aioli</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Fish and Chips</span>
+                            <span class="item-desc">Panerad torskfisk, grönsaker, pommes, hemlagad remouladsås &amp; citron</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Wiener Schnitzel</span>
+                            <span class="item-desc">Ca 200g hemgjord schnitzel, grönt, pommes, ansjovis, kapris, aromsmör, bearnaisesås, citron</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sallader -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Sallader</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Halloumi Sallad</span>
+                            <span class="item-desc">Romansallad, tomat, gurka, ceasardressing och parmesan</span>
+                        </div>
+                        <span class="item-price">169 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Ceasarsallad</span>
+                            <span class="item-desc">Romansallad, tomat, gurka, kyckling, bacon och parmesan</span>
+                        </div>
+                        <span class="item-price">169 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Räksallad</span>
+                            <span class="item-desc">Romansallad, tomat, gurka, ceasardressing, ägg och aioli</span>
+                        </div>
+                        <span class="item-price">179 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Varmrökt Lax</span>
+                            <span class="item-desc">Romansallad, tomat, gurka, ceasardressing och parmesan</span>
+                        </div>
+                        <span class="item-price">189 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barnmeny -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Barnmeny</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Nuggets</span>
+                            <span class="item-desc">Serveras med pommes, grönt och ketchup</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Pasta</span>
+                            <span class="item-desc">Serveras med köttfärssås och tomat</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Pannkaka</span>
+                            <span class="item-desc">3 st pannkakor, jordgubbssylt och grädde</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kvällsmeny -->
+            <div class="menu-block kvallsmeny-block reveal">
+                <h2 class="kvall-title">Kvällsmeny</h2>
+                <p class="menu-subtitle">Serveras från 16:00</p>
+                <div class="gold-divider centered"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Kycklingfilé</span>
+                            <span class="item-desc">Grillad kycklingfilé, grillade grönsaker, potatisgratäng, färsk vitlök ost, bearnaisesås</span>
+                        </div>
+                        <span class="item-price">229 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Fläskfilé</span>
+                            <span class="item-desc">Grillad fläskfilé, grillade grönsaker, potatisgratäng, räkor, bearnaisesås &amp; rödvinssås</span>
+                        </div>
+                        <span class="item-price">229 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Ryggbiff</span>
+                            <span class="item-desc">Grillad ryggbiff, grillade grönsaker, potatisgratäng, bearnaisesås &amp; rödvinssås</span>
+                        </div>
+                        <span class="item-price">249 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Tigerräkor</span>
+                            <span class="item-desc">Grillade tigerräkor, grillade grönsaker, dillrostad potatis, aioli &amp; citron</span>
+                        </div>
+                        <span class="item-price">239 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">3 Sorters Lax</span>
+                            <span class="item-desc">Varmrökt, kallrökt &amp; gravad lax, grillade grönsaker, dillrostad potatis &amp; romsås</span>
+                        </div>
+                        <span class="item-price">249 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Planka Ryggbiff</span>
+                            <span class="item-desc">Grillade grönsaker, gratinerat mos, rödvinssås &amp; bearnaisesås</span>
+                        </div>
+                        <span class="item-price">289 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Planka Fläskfilé</span>
+                            <span class="item-desc">Grillade grönsaker, gratinerat mos, räkor, rödvinssås &amp; bearnaisesås</span>
+                        </div>
+                        <span class="item-price">259 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Planka Kycklingfilé</span>
+                            <span class="item-desc">Grillade grönsaker, gratinerat mos, färsk vitlök ost &amp; bearnaisesås</span>
+                        </div>
+                        <span class="item-price">259 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pizzameny -->
+            <div class="menu-block reveal">
+                <h2 class="kvall-title">Pizzameny</h2>
+                <div class="gold-divider centered"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Margarita</span>
+                            <span class="item-desc">Mozzarella, färsk basilika &amp; parmesan</span>
+                        </div>
+                        <span class="item-price">129 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Vesuvio</span>
+                            <span class="item-desc">Mozzarella &amp; skinka</span>
+                        </div>
+                        <span class="item-price">129 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Bolognese</span>
+                            <span class="item-desc">Mozzarella, köttfärssås &amp; lök</span>
+                        </div>
+                        <span class="item-price">129 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Hawaii</span>
+                            <span class="item-desc">Mozzarella, skinka &amp; ananas</span>
+                        </div>
+                        <span class="item-price">139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Salami</span>
+                            <span class="item-desc">Mozzarella, salami och oliver</span>
+                        </div>
+                        <span class="item-price">139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Capricciosa</span>
+                            <span class="item-desc">Mozzarella, färska champinjoner, skinka, vitlök ost, ruccola &amp; parmesan</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Quattro</span>
+                            <span class="item-desc">Färska champinjoner, skinka, räkor, musslor &amp; oliver</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Formaggio</span>
+                            <span class="item-desc">Mozzarella, vitlök ost, gorgonzola &amp; parmesan</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Kebab</span>
+                            <span class="item-desc">Mozzarella, nötkött, lök, tomat, kebabsås &amp; feferoni</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Gyros</span>
+                            <span class="item-desc">Mozzarella, fläskkött, lök, tomat, kebabsås &amp; feferoni</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Vegetarisk</span>
+                            <span class="item-desc">Mozzarella, färska champinjoner, paprika, lök, tomat, oliver &amp; ruccola</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Italiano</span>
+                            <span class="item-desc">Mozzarella, bacon, salami, pepperonikorv &amp; jalapeños</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Fläskfilé</span>
+                            <span class="item-desc">Mozzarella, sparris, fläskfilé, lök &amp; bearnaisesås</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Kyckling</span>
+                            <span class="item-desc">Mozzarella, kyckling, pesto, ruccola, vitlök ost &amp; parmesan</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Borgholm</span>
+                            <span class="item-desc">Mozzarella, skinka, bacon, färska champinjoner &amp; bearnaisesås</span>
+                        </div>
+                        <span class="item-price">149 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Oxfilé</span>
+                            <span class="item-desc">Mozzarella, tomat, paprika, oxfilé, bearnaisesås &amp; jalapeño</span>
+                        </div>
+                        <span class="item-price">159 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Solkattens</span>
+                            <span class="item-desc">Mozzarella, oxfilé, fläskfilé, bacon, vitlök ost &amp; färska champinjoner</span>
+                        </div>
+                        <span class="item-price">169 kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAPPY HOUR ==================== -->
+    <section id="happy-hour" class="section happy-hour-section">
+        <div class="hh-rays"></div>
+        <div class="hh-glow"></div>
+        <div class="container">
+            <div class="happy-hour-content reveal">
+                <h1 class="page-title">Happy Hour</h1>
+                <div class="gold-divider centered"></div>
+                <div class="hh-time">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Alla dagar mellan 15:00 och 17:00</span>
+                </div>
+                <div class="hh-list">
+                    <div class="hh-item">
+                        <span class="hh-name">Stor starköl</span>
+                        <span class="hh-price">69 kr</span>
+                    </div>
+                    <div class="hh-item">
+                        <span class="hh-name">Cider</span>
+                        <span class="hh-price">69 kr</span>
+                    </div>
+                    <div class="hh-item">
+                        <span class="hh-name">Valfri drink</span>
+                        <span class="hh-price">99 kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DRYCKER ==================== -->
+    <section id="drycker" class="section drycker-section">
+        <div class="drycker-orbs"></div>
+        <div class="container">
+            <h1 class="page-title reveal">Drycker</h1>
+            <div class="gold-divider centered reveal"></div>
+
+            <!-- Drinkar -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Drinkar <span class="cat-note">(4 cl / 6 cl)</span></h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Mojito</span>
+                            <span class="item-desc">Vitrom, limejuice, mynta, sockerlag &amp; sodavatten</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Isbjörn</span>
+                            <span class="item-desc">Sodavatten, vodka &amp; blå curaçao</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Aperol Spritz</span>
+                            <span class="item-desc">Bubbel, aperol &amp; sodavatten</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Gin &amp; Tonic</span>
+                            <span class="item-desc">Sodavatten, gin &amp; citron</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Vodka &amp; Redbull</span>
+                            <span class="item-desc">Vodka, redbull &amp; lime</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Irish Coffee</span>
+                            <span class="item-desc">Whisky, kaffe, socker &amp; vispad grädde</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Rom &amp; Cola</span>
+                            <span class="item-desc">Mörk rom, cola &amp; lime</span>
+                        </div>
+                        <span class="item-price">119 / 139 kr</span>
+                    </div>
+                </div>
+                <div class="shotbricka-row">
+                    <div class="shotbricka-item">
+                        <span>Shotbricka 10 st (6 cl)</span>
+                        <span class="item-price">990 kr</span>
+                    </div>
+                    <div class="shotbricka-item">
+                        <span>Shotbricka 6 st (6 cl)</span>
+                        <span class="item-price">590 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Öl & Cider -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Öl &amp; Cider</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Falcon (fatöl)</span>
+                            <span class="item-desc">Stor starköl</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Staropramen (fatöl)</span>
+                            <span class="item-desc">Tjeckisk lager</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Blanc 1664 (fatöl)</span>
+                            <span class="item-desc">Fransk veteöl</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Eriksberg 50 cl</span>
+                            <span class="item-desc">Flasköl</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Guld Källan</span>
+                            <span class="item-desc">Flasköl</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Carlsberg Hof</span>
+                            <span class="item-desc">Flasköl</span>
+                        </div>
+                        <span class="item-price">79 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Corona</span>
+                            <span class="item-desc">Flasköl</span>
+                        </div>
+                        <span class="item-price">79 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Cider Päron / Rosé</span>
+                            <span class="item-desc">Cider</span>
+                        </div>
+                        <span class="item-price">89 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vin -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Vin</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Vitvin (Viña Maipo)</span>
+                            <span class="item-desc">Glas eller flaska</span>
+                        </div>
+                        <span class="item-price">89 / 349 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Rödvin (Viña Maipo)</span>
+                            <span class="item-desc">Glas eller flaska</span>
+                        </div>
+                        <span class="item-price">89 / 349 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Rosévin (Viña Maipo)</span>
+                            <span class="item-desc">Glas eller flaska</span>
+                        </div>
+                        <span class="item-price">89 / 349 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Prosecco</span>
+                            <span class="item-desc">Glas eller flaska</span>
+                        </div>
+                        <span class="item-price">99 / 379 kr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Läsk -->
+            <div class="menu-block reveal">
+                <h2 class="menu-category-title">Läsk</h2>
+                <div class="gold-divider short"></div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Coca Cola / Cola Zero</span>
+                            <span class="item-desc">33 cl</span>
+                        </div>
+                        <span class="item-price">29 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Fanta / Fanta Exotic</span>
+                            <span class="item-desc">33 cl</span>
+                        </div>
+                        <span class="item-price">29 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Loka / Loka Citron</span>
+                            <span class="item-desc">33 cl</span>
+                        </div>
+                        <span class="item-price">29 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name">Sprite</span>
+                            <span class="item-desc">33 cl</span>
+                        </div>
+                        <span class="item-price">29 kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <span class="item-name gold-item">Smakis</span>
+                            <span class="item-desc">Päron / Jordgubb / Apelsin</span>
+                        </div>
+                        <span class="item-price">19 kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KONTAKT ==================== -->
+    <section id="kontakt" class="section kontakt-section">
+
+        <!-- KARTA – kvadratisk med flikar -->
+        <div class="kontakt-map-outer">
+            <div class="map-tab-bar">
+                <button class="map-tab active" id="tabKarta">Karta</button>
+                <button class="map-tab" id="tabSatellit">Satellit</button>
+            </div>
+            <div class="kontakt-map-wrap">
+                <div id="leafletMap"></div>
+                <div class="map-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Storgatan 11, Borgholm
+                </div>
+            </div>
+        </div>
+
+        <!-- INFO-PANEL under kartan -->
+        <div class="kontakt-panel reveal">
+            <!-- Kolumn 1: Logo + namn -->
+            <div class="kp-col kp-brand">
+                <img src="images/logo.png" alt="Solkatten" class="kp-logo">
+                <h3 class="kp-name">SOLKATTEN</h3>
+                <p class="kp-tagline">Restaurang &amp; Bar</p>
+            </div>
+
+            <!-- Kolumn 2: Adress + öppettider -->
+            <div class="kp-col kp-info">
+                <div class="kp-block">
+                    <span class="kp-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        ADRESS
+                    </span>
+                    <p class="kp-value">Storgatan 11<br>Borgholm, Öland</p>
+                </div>
+                <div class="kp-block">
+                    <span class="kp-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ÖPPETTIDER
+                    </span>
+                    <p class="kp-value">Måndag – Söndag<br><span class="kp-gold">Öppet varje dag</span></p>
+                </div>
+            </div>
+
+            <!-- Kolumn 3: Kontakt -->
+            <div class="kp-col kp-contact">
+                <div class="kp-block">
+                    <span class="kp-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.6 16.92z"/></svg>
+                        TELEFON
+                    </span>
+                    <a href="tel:+46734411241" class="kp-value kp-link">073-441 12 41</a>
+                </div>
+                <div class="kp-block kp-social-row">
+                    <span class="kp-label">SOCIALA MEDIER</span>
+                    <div class="kp-socials">
+                        <a href="https://www.facebook.com/share/1GTBgtassi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="kp-social-btn" id="kontaktaOssBtn" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                            Facebook
+                        </a>
+                        <a href="https://www.instagram.com/solkatten_11?igsh=enk5OWZqcTE0Zndq" target="_blank" rel="noopener noreferrer" class="kp-social-btn" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botten-rad -->
+        <div class="kontakt-footer">
+            <span>© 2025 Solkatten Restaurang &amp; Bar – Borgholm, Öland</span>
+        </div>
+
+    </section>
+
+    <!-- ==================== FLOATING CONTACT BUTTON ==================== -->
+    <div class="fab-wrap" id="fabWrap">
+        <div class="fab-social" id="fabSocial">
+            <a href="https://www.facebook.com/share/1GTBgtassi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="fab-btn fb" title="Facebook" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/solkatten_11?igsh=enk5OWZqcTE0Zndq" target="_blank" rel="noopener noreferrer" class="fab-btn ig" title="Instagram" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="tel:+46734411241" class="fab-btn ph" title="Ring oss" aria-label="Ring oss">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.6 16.92z"></path></svg>
+            </a>
+        </div>
+        <button class="fab-main" id="fabMain" aria-label="Kontakt" aria-expanded="false">
+            <svg class="fab-phone-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.6 16.92z"></path></svg>
+            <svg class="fab-close-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
