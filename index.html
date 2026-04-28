@@ -22,6 +22,7 @@
         </button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hem" class="nav-link">HEM</a></li>
+            <li><a href="#evenemang" class="nav-link">EVENEMANG<span class="nyhet-nav-dot"></span></a></li>
             <li><a href="#meny" class="nav-link">MENY</a></li>
             <li><a href="#happy-hour" class="nav-link">HAPPY HOUR</a></li>
             <li><a href="#drycker" class="nav-link">DRYCKER</a></li>
@@ -54,6 +55,129 @@
             </div>
         </div>
     </section>
+
+    <!-- ==================== NYHET / EVENEMANG ==================== -->
+    <section id="evenemang" class="section nyhet-section">
+        <div class="nyhet-glow"></div>
+        <div class="nyhet-sparkles" id="nyhetSparkles"></div>
+        <img src="images/Sångarens1.jpeg" alt="Magnus Lang" class="nyhet-side-img nyhet-side-left" aria-hidden="true">
+        <img src="images/Sångarens2.jpeg" alt="Magnus Lang på scen" class="nyhet-side-img nyhet-side-right" aria-hidden="true">
+        <div class="container">
+            <div class="nyhet-inner">
+
+                <div class="nyhet-badge-wrap reveal">
+                    <span class="nyhet-live-dot"></span>
+                    <span class="nyhet-badge-text">NYHET</span>
+                </div>
+
+                <h2 class="nyhet-headline reveal">
+                    För alla gäster som kommer till<br><span class="nyhet-gold">SOLKATTEN</span>
+                </h2>
+
+                <div class="nyhet-event-types reveal">
+                    <span>Live Musik &amp; Trubadur</span>
+                    <span class="net-dot">·</span>
+                    <span>Musik Quiz</span>
+                </div>
+
+                <div class="gold-divider centered reveal"></div>
+
+                <div class="nyhet-events reveal">
+        <div class="nyhet-event-card">
+        <span class="nec-day">2</span>
+        <span class="nec-month">MAJ</span>
+        <div class="nec-divider"></div>
+        <span class="nec-type">Live Musik</span>
+        <span class="nec-sub">&amp; Trubadur</span>
+        <span class="nec-time">Kl. 20.00 </span>
+        <span class="nec-booking">Glöm inte att boka bord, ring</span>
+    </div>
+
+    <div class="nyhet-event-card">
+        <span class="nec-day">15</span>
+        <span class="nec-month">MAJ</span>
+        <div class="nec-divider"></div>
+        <span class="nec-type">Musik Quiz</span>
+        <span class="nec-sub"> Live Musik</span>
+        <span class="nec-time">Kl. 19.00</span>
+        <span class="nec-booking">Glöm inte att boka bord, ring</span>
+    </div>
+
+    <div class="nyhet-event-card">
+        <span class="nec-day">22</span>
+        <span class="nec-month">MAJ</span>
+        <div class="nec-divider"></div>
+        <span class="nec-type">Musik Quiz</span>
+        <span class="nec-sub"> Live Musik</span>
+        <span class="nec-time">Kl. 19.00</span>
+        <span class="nec-booking">Glöm inte att boka bord, ring</span>
+    </div>
+</div>
+
+                <div class="nyhet-bottom reveal">
+                    <div class="nyhet-artist-pill">
+                        <img src="images/Sångarens2.jpeg" alt="Magnus Lang" class="nyhet-artist-img">
+                        <div class="nyhet-artist-text">
+                            <span class="nyhet-artist-label">Kvällens Artist</span>
+                            <span class="nyhet-artist-name">Magnus Lang</span>
+                            <span class="nyhet-artist-role">Trubadur &amp; Musikunderhållare sedan 1995</span>
+                        </div>
+                    </div>
+
+                    <button class="nyhet-readmore" id="openArtistModal" aria-label="Läs mer om Magnus Lang">
+                        <svg class="nyhet-rm-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        <span>Läs mer om sångaren</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ARTIST MODAL ==================== -->
+    <div class="artist-modal-overlay" id="artistModalOverlay" role="dialog" aria-modal="true" aria-labelledby="artistModalTitle">
+        <div class="artist-modal">
+            <button class="artist-modal-close" id="closeArtistModal" aria-label="Stäng">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="artist-modal-inner">
+                <div class="artist-modal-images">
+                    <img src="images/Sångarens1.jpeg" alt="Magnus Lang" class="ami-1">
+                    <img src="images/Sångarens2.jpeg" alt="Magnus Lang på scen" class="ami-2">
+                </div>
+                <div class="artist-modal-content">
+                    <span class="artist-modal-badge">Kvällens Artist</span>
+                    <h2 class="artist-modal-name" id="artistModalTitle">Magnus Lang</h2>
+                    <p class="artist-modal-tagline">Trubadur &amp; Musikunderhållare sedan 1995</p>
+                    <div class="gold-divider"></div>
+                    <p class="artist-modal-bio">
+                        Magnus Lang är en hängiven trubadur och musikunderhållare med hjärta på scen. Med över 30 års erfarenhet skapar han en fantastisk stämning för alla, från avslappnat mingel till interaktiv allsång och rolig musikquiz!
+                    </p>
+                    <p class="artist-modal-bio">
+                        Han spelar pop, rock, schlager, svenska sommarlåtar, visor, soul, country och irländsk pubmusik. Magnus bjuder också på dansanta hitlåtar från 60-talet och framåt med elgitarr, perfekt när dansgolvet vill röra på sig!
+                    </p>
+                    <div class="artist-modal-dates">
+                        <span class="amd-title">KOMMANDE FRAMTRÄDANDEN</span>
+                        <div class="amd-list">
+                            <div class="amd-item">
+                                <span class="amd-date">2 maj</span>
+                                <span class="amd-name">Live Musik &amp; Trubadur</span>
+                            </div>
+                            <div class="amd-item">
+                                <span class="amd-date">15 maj</span>
+                                <span class="amd-name">Musik Quiz</span>
+                            </div>
+                            <div class="amd-item">
+                                <span class="amd-date">22 maj</span>
+                                <span class="amd-name">Musik Quiz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ==================== MENY ==================== -->
     <section id="meny" class="section meny-section">

@@ -271,5 +271,59 @@ document.addEventListener('keydown', (e) => {
     resetTimer();
 })();
 
+// ── NYHET SPARKLES ─────────────────────────────────────────
+(function initSparkles() {
+    const container = document.getElementById('nyhetSparkles');
+    if (!container) return;
+    const count = window.innerWidth < 600 ? 14 : 26;
+    for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'sparkle';
+        const size = Math.random() * 2.8 + 0.8;
+        s.style.cssText = [
+            `left: ${Math.random() * 100}%`,
+            `top: ${Math.random() * 100}%`,
+            `width: ${size}px`,
+            `height: ${size}px`,
+            `animation-duration: ${Math.random() * 5 + 3}s`,
+            `animation-delay: ${Math.random() * 6}s`,
+        ].join(';');
+        container.appendChild(s);
+    }
+})();
+
+// ── ARTIST MODAL ───────────────────────────────────────────
+(function initArtistModal() {
+    const overlay  = document.getElementById('artistModalOverlay');
+    const openBtn  = document.getElementById('openArtistModal');
+    const closeBtn = document.getElementById('closeArtistModal');
+    if (!overlay || !openBtn || !closeBtn) return;
+
+    function openModal() {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => closeBtn.focus(), 50);
+    }
+
+    function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) {
+            closeModal();
+        }
+    });
+})();
+
 // ── INITIAL CALL ───────────────────────────────────────────
 onScroll();
