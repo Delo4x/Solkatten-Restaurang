@@ -1211,11 +1211,27 @@ ul { list-style: none; }
 }
 
 .nec-time {
+    display: block;
+    width: 100%;
     margin-top: 0.8rem;
     font-size: 0.85rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     letter-spacing: 1px;
+    text-align: center;
+}
+
+.nec-sub {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.96);
+    letter-spacing: 0.5px;
+    opacity: 1;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .nec-booking {
